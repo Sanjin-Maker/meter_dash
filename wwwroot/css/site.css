@@ -1,0 +1,537 @@
+/* Multi-Site Energy Dashboard Styles */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --energy-blue: #1e40af;
+    --solar-orange: #f59e0b;
+    --grid-green: #10b981;
+    --consumption-red: #ef4444;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Enhancements */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.375rem;
+}
+
+/* Card Enhancements */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.metric-card.success {
+    background: linear-gradient(135deg, var(--success-color), #146c43);
+}
+
+.metric-card.warning {
+    background: linear-gradient(135deg, var(--warning-color), #cc9a00);
+}
+
+.metric-card.info {
+    background: linear-gradient(135deg, var(--info-color), #0aa2c0);
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.metric-change {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Building Status Cards */
+.building-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.building-card:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    transform: translateX(3px);
+}
+
+.building-card.high-consumption {
+    border-left-color: var(--danger-color);
+}
+
+.building-card.medium-consumption {
+    border-left-color: var(--warning-color);
+}
+
+.building-card.low-consumption {
+    border-left-color: var(--success-color);
+}
+
+.building-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.building-metrics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.building-power {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.building-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-normal {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-critical {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Tab Enhancements */
+.nav-tabs {
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    color: var(--secondary-color);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    margin-right: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Chart Containers */
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin: 1rem 0;
+}
+
+.chart-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: var(--secondary-color);
+}
+
+/* Sankey Diagram Styles */
+#sankeyDiagram {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.sankey-node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sankey-node:hover {
+    opacity: 0.8;
+}
+
+.sankey-link {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.sankey-link:hover {
+    opacity: 1;
+}
+
+/* Flow Summary Styles */
+.flow-summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.flow-summary-label {
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.flow-summary-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Alert Styles */
+.flow-alert {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid;
+}
+
+.flow-alert.warning {
+    background-color: #fff3cd;
+    border-left-color: var(--warning-color);
+    color: #856404;
+}
+
+.flow-alert.danger {
+    background-color: #f8d7da;
+    border-left-color: var(--danger-color);
+    color: #721c24;
+}
+
+.flow-alert.info {
+    background-color: #d1ecf1;
+    border-left-color: var(--info-color);
+    color: #0c5460;
+}
+
+/* Table Enhancements */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--dark-color);
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .metric-value {
+        font-size: 2rem;
+    }
+    
+    .building-metrics {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .building-power {
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 1.75rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-energy { color: var(--energy-blue) !important; }
+.text-solar { color: var(--solar-orange) !important; }
+.text-grid { color: var(--grid-green) !important; }
+.text-consumption { color: var(--consumption-red) !important; }
+
+.bg-energy { background-color: var(--energy-blue) !important; }
+.bg-solar { background-color: var(--solar-orange) !important; }
+.bg-grid { background-color: var(--grid-green) !important; }
+.bg-consumption { background-color: var(--consumption-red) !important; }
+
+.border-energy { border-color: var(--energy-blue) !important; }
+.border-solar { border-color: var(--solar-orange) !important; }
+.border-grid { border-color: var(--grid-green) !important; }
+.border-consumption { border-color: var(--consumption-red) !important; }
+
+
+/* Map Page Styles */
+.map-container {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    overflow: hidden;
+}
+
+.map-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.map-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.map-header p {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.map-controls {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.map-controls h6 {
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.site-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.legend-main { background-color: #dc3545; }
+.legend-warehouse { background-color: #28a745; }
+.legend-manufacturing { background-color: #ffc107; }
+.legend-distribution { background-color: #007bff; }
+
+#site-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 15px;
+    text-align: center;
+}
+
+.site-popup h5 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.site-popup p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.site-popup .btn {
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .map-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .map-controls {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+    
+    #site-map {
+        margin-top: 200px;
+        height: calc(100vh - 200px);
+    }
+}
+
